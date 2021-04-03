@@ -1,10 +1,31 @@
-<h1 style="text-align: center;">{{productTitle}}</h1>
+<h1 style="text-align: center">{{ productTitle }}</h1>
 <div class="input-group mb-3">
-    <input type="text" class="form-control"  placeholder="Yemek adını giriniz" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  </div>
-  <div class="row">
-    <button *ngFor="let product of products" type="button" class="btn btn-success" style="padding: 10px; margin: 2px;">{{product.product_name}}</button>
-    <!-- <div *ngFor="let product of products" class="card" style="width: 7rem;" class="col-md-2">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Yemek adını giriniz"
+    aria-label="Sizing example input"
+    aria-describedby="inputGroup-sizing-default"
+    [(ngModel)]="filterText"
+  />
+</div>
+<div class="row">
+  <div 
+  *ngFor="let product of products | productFilter: filterText">
+<a class="list-group-item" routerLink="details/{{product.product_id}}">{{product.product_name}}</a>
+</div>
+  <!-- <button
+    *ngFor="let product of products | productFilter: filterText"
+    type="button"
+    class="btn btn-success"
+    style="padding: 10px; margin: 2px"
+    routerLink="/{{product.product_id}}"
+  >
+
+    {{ product.product_name }}
+  </button> -->
+
+  <!-- <div *ngFor="let product of products" class="card" style="width: 7rem;" class="col-md-2">
     <img [src]=[product.product_photo_url] class="card-img-top" alt="...">
     <div class="card-body">
        <h5 class="card-title">{{product.product_name}}</h5> 
@@ -12,24 +33,26 @@
       <a href="#" class="btn btn-primary">Tıkla </a>
     </div>
   </div>   -->
+</div>
 
-  </div>
-
-
-<nav *ngIf="products" id="pagination-navigation" aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+<nav
+  *ngIf="products"
+  id="pagination-navigation"
+  aria-label="Page navigation example"
+>
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

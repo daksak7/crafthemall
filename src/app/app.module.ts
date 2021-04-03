@@ -8,6 +8,9 @@ import { RightbarComponent } from './rightbar/rightbar.component';
 import { ContentComponent } from './content/content.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductFilterPipe } from './product-filter.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     LeftbarComponent,
     RightbarComponent,
-    ContentComponent
+    ContentComponent,
+    ProductFilterPipe,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

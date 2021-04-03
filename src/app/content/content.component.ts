@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductFilterPipe } from '../product-filter.pipe';
 import { ProductService } from '../product.service';
 import { Product } from './product';
 
@@ -11,15 +12,15 @@ import { Product } from './product';
 export class ContentComponent implements OnInit {
    productTitle: string="Ürünler"
    products: Product[]
+   filterText=""
    
 
-  constructor(private ps: ProductService) { }
+  constructor(private ps: ProductService ) { }
 
   ngOnInit(){
     this.ps.getProducts()
     .subscribe(data=>{
-      this.products=data,
-      console.log(this.products)
+      this.products=data
     })
 
 
