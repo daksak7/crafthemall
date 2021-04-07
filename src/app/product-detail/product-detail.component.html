@@ -1,2 +1,15 @@
- <h1 style="text-align: center">Ürün Detayı</h1> 
+ <h1 *ngFor="let detailedproduct of detailedproducts" style="text-align: center">{{detailedproduct.product_name}}</h1> 
+ <div>
+    <div class="row">
+      <div class="col-md-2" style="margin-top: 20px;">
+        <app-leftbar></app-leftbar>
+      </div>
+      <div class="col-md-8">
+
+      </div>
+      <div class="col-md-2" style="margin-top: 20px;">
+        <app-rightbar></app-rightbar>
+      </div>
+    </div>
+  </div>
 

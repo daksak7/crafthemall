@@ -21,6 +21,7 @@ export class ContentComponent implements OnInit {
     this.ps.getProducts()
     .subscribe(data=>{
       this.products=data
+      //console.log(this.products)
     })
 
 
